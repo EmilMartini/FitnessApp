@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Fitness Tracker | User";
+}
+
+<div class="welcome-user">
+    <h2>Welcome</h2>
+    <h3>Name: @Html.Raw(Model.FirstName) @Html.Raw(Model.LastName)</h3>
+    <h4>Email: @Html.Raw(Model.Email)</h4>
+    <h4>Age: @Html.Raw(Model.Age)</h4>
+</div>
+
+<div id="display-activity">
+    <h3>Total activities = @Html.Raw(Model.ActivitiesCount)</h3>
+    <div id="piechart">
+        <p>Placeholder for piechart</p>
+    </div>
+    <div id="barchart">
+        <p>Placeholder for barchart</p>
+    </div>
+</div>
+
+<div id="add-activity">
+    <h2>Add Activity</h2>
+    <form action=@Url.Action("AddActivity") method="post">
+        <div id="activity-checkboxes">
+            <input type="radio" name="activity-type" value="cycling"/>
+            <label for="cycling">Cycling</label><br>
+            <input type="radio" name="activity-type" value="running"/>
+            <label for="running">Running</label><br>
+            <input type="radio" name="activity-type" value="walking"/>
+            <label for="walking">Walking</label><br>
+        </div>
+        <div>
+            <label for="activity-length">Length</label>
+            <input type="number" name="activity-length" /><label for="activity-length">Km</label><br>
+            <label for="activity-length">Duration</label>
+            <input type="number" name="activity-duration"/><label for="activity-duration">Minutes</label>
+        </div>
+    </form>
+</div>
